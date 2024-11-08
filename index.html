@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Expenses Sheet</title>
+  <style>
+    body {
+      background-color: rgb(231, 233, 235);
+    }
+    thead {
+      background-color: beige;
+      color: blue;
+    }
+    td.myColor {
+      background-color: beige;
+      color: blue;
+    }
+    /* Add this for responsive table */
+    .table-responsive {
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-md-3"></div>
+
+      <div class="col-md-6 col-12">
+        <h2 class="text-danger text-center">Expense Sheet</h2><br><br>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+          Add Product
+        </button>
+
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Add Products</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+
+              <!-- Modal body -->
+              <form id="form">
+                <div class="modal-body">
+                  <input type="date" class="form-control" id="myDate" placeholder="Enter Date">
+                  <br>
+                  <input type="text" class="form-control" id="myProduct" placeholder="Enter your Products" >
+                  <br>
+                  <input type="number" class="form-control" id="unitPrice" placeholder="Enter Unit Price" >
+                  <br>
+                  <input type="number" class="form-control" min="0" id="qty" placeholder="Enter Quantity" >
+                  <br>
+              </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" onclick="taskFunction()" data-bs-dismiss="modal">Add
+                Product</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br><br>
+      <p id="myAlert"></p>
+
+      <!-- Responsive table wrapper -->
+      <div class="table-responsive">
+        <table class="table table-bordered border-primary bg-white" id="myTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Product</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+              <th>Total Cost</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="table_data">
+            <!-- Data rows will be inserted here -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <script src="./expenses.js"></script>
+</body>
+</html>
